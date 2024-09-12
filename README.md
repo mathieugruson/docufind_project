@@ -57,7 +57,7 @@ Below are some images that illustrate various parts of the project:
 3. **Repo 3** - Final Iteration
    - A fully functional web application featuring advanced document management tools.
 
-### Conclusion 🎉
+### Why we failed 🎉
 
-Docufind has been a challenging yet rewarding journey, offering deep insights into the integration of technology in legal practices. I’m excited to share this code for others to learn from and perhaps contribute to its future development. Let's make the law a bit more colorful and engaging together!
+
 
