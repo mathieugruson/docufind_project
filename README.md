@@ -52,8 +52,7 @@ Below are some images that illustrate various parts of the project:
 1. **Repo 1** - Initial Electron App Development
    - Focus on local file security and direct OpenAI API access.
    
-2. **Repo 2** - Transition to Web App
-   - Enhancements in usability and security for web-based access.
+2. **Repo 2** - Try with OCR
 
 3. **Repo 3** - Final Iteration
    - A fully functional web application featuring advanced document management tools.
