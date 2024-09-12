@@ -1,0 +1,5 @@
+The optional dependency 'jbig2' was not found, so some image optimizations could not be attempted.
+The optional dependency 'pngquant' was not found, so some image optimizations could not be attempted.
+PDF/A conversion was enabled. (Try `--output-type pdf`.)
+
+=> C'est des compresseurs pour gagner en taille donc pas nécessaire pour l'instant

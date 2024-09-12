@@ -1,0 +1,9 @@
+pytesseract
+matplotlib
+pillow
+# easyocr
+# opencv-python
+# keras-ocr
+ocrmypdf
+pyinstaller
+nuitka

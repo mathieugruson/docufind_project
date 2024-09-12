@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@apache-arrow/ts": "^15.0.1"
+  }
+}

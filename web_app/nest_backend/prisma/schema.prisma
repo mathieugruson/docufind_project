@@ -1,0 +1,46 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id              String @default(uuid()) @id
+    email           String @unique
+    name            String?
+    password        String
+    fileFolder      String @default(uuid())
+    userFolders     UserFolder[]
+}
+
+// different folder of the user
+model UserFolder {
+  id                 String              @default(uuid()) @id
+  folderName         String
+  userId             String
+  user               User                @relation(fields: [userId], references: [id])
+  conversationFolders ConversationFolder[]
+}
+
+// different conversation in a folder of the user
+model ConversationFolder {
+  id                String       @default(uuid()) @id
+  folderName        String
+  userFolderId      String
+  userFolder        UserFolder   @relation(fields: [userFolderId], references: [id])
+  conversations     Conversation[]
+}
+
+model Conversation {
+  id              String   @default(uuid()) @id
+  questionContent         String
+  conversationId  String
+  conversation    ConversationFolder @relation(fields: [conversationId], references: [id])
+  answerContent          String?  // This remains as an optional single Answer relation
+}

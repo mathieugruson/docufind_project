@@ -1,0 +1,11 @@
+version: '3'
+services:
+  nextjs:
+    build:
+      dockerfile: Dockerfile
+    volumes:
+      - ./electron_project/:/usr/src/app/
+    stdin_open: true # permet de le lancer en detach mode et d'aller dedans si nécessaire
+    tty: true #
+    ports:
+      - 8000:8000

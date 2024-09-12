@@ -1,0 +1,117 @@
+# Use postgres/example user/password credentials
+version: '3.8'
+
+services:
+
+  postgres:
+    image: postgres:latest
+    container_name: "postgres_${INSTANCE_NAME}"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres1
+      POSTGRES_USER: postgres
+      POSTGRES_PORT: "${POSTGRES_PORT}"
+      DATABASE_URL: "postgresql://postgres:password@postgres:${POSTGRES_PORT}/postgres1?schema=public"
+    command: -p ${POSTGRES_PORT}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres1 -h postgres -p ${POSTGRES_PORT}"]
+      interval: 10s
+      timeout: 30s
+      retries: 5
+      start_period: 10s
+    # env_file:
+    #   - .env
+    networks:
+     - backend_network
+    ports:
+      # - "5432:5432"
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+    volumes:
+      - bdd:/var/lib/postgresql/data
+
+  nestjs:
+    depends_on:
+      postgres:
+        condition: service_healthy
+    container_name: nest_backend_${INSTANCE_NAME}
+    build:
+      context: ./nest_backend
+      dockerfile: Dockerfile
+    networks:
+     - backend_network
+    environment:
+      POSTGRES_PORT: "${POSTGRES_PORT}"
+      DATABASE_URL: "postgresql://postgres:password@postgres:${POSTGRES_PORT}/postgres1?schema=public"
+      NESTJS_PORT: ${NESTJS_PORT}
+    stdin_open: true 
+    tty: true
+    ports:
+      # - 3000:3000
+      # - 5555:5555
+      - "${NESTJS_PORT}:${NESTJS_PORT}"
+      - "${NESTJS_DEBUG_PORT}:${NESTJS_DEBUG_PORT}"
+    volumes:
+      - ./nest_backend/src:/usr/src/app/src
+      - ./uploads_volume:/usr/src/app/upload  # Mount the volume to the container's upload directory
+
+  nextjs:
+    depends_on:
+      postgres:
+        condition: service_healthy
+    container_name: next_frontend_${INSTANCE_NAME}
+    build:
+      context: ./next_frontend
+      dockerfile: Dockerfile
+    environment:
+      NEXTAUTH_URL: "http://localhost:${NGINX_PORT}/"
+      NGINX_PORT: "${NGINX_PORT}"
+      NEXT_PUBLIC_NGINX_PORT: "${NGINX_PORT}"
+      NEXTJS_PORT: "${NEXTJS_PORT}"
+
+    networks:
+      - frontend_network
+    ports:
+      # - 3001:3001
+      - "${NEXTJS_PORT}:${NEXTJS_PORT}"
+    volumes:
+      - ./next_frontend/app:/usr/src/app/app
+      - ./next_frontend/public:/usr/src/app/public
+
+  nginx:
+    container_name: nginx_${INSTANCE_NAME}
+    depends_on:
+      - nestjs
+      - nextjs
+    build:
+      context: ./nginx/
+      dockerfile: Dockerfile
+    networks:
+      - nginx_dmz_network
+      - frontend_network
+      - backend_network
+    environment:
+      INSTANCE_NAME: ${INSTANCE_NAME}
+      NEXTJS_PORT: ${NEXTJS_PORT}
+      NESTJS_PORT: ${NESTJS_PORT}
+      NGINX_PORT: ${NGINX_PORT}
+
+    ports:
+      # - 8080:8080
+      - "${NGINX_PORT}:${NGINX_PORT}"
+
+
+networks: 
+  nginx_dmz_network:
+    name: nginx_dmz_network
+  frontend_network:
+    name: frontend_network
+  backend_network:
+    name: backend_network
+
+volumes:
+  uploads_volume:  # Define the volume
+    driver: local
+  bdd:
+    driver: local
+    name: "postgres"

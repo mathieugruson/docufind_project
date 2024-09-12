@@ -1,0 +1,85 @@
+### Docufind 👋
+
+The goal of this project was to start to solve a problem that a lot of lawyer face : reading thousand of pages in big law case
+
+
+There is 3 repositories as the project has evolved over time while we discover some stuff. 
+
+As this project was for lawyers, there was at the start a tension between security and ux, which were both strong requirement. 
+
+At the beginning, we choose to do a electron app (which is a software you download). The goal was that we do not store any file of the lawyer to avoid security risk and, if possible, that the content of the files go
+directly to OpenAI API, but we discovered after that practical reason made it impossible for lawyer to use it even with an API key (which was not UX friendly).
+Nevertheless, a big part of the electron app was coded, so I share it here if it can help anybody
+
+
+I learn so much stuff. 
+
+Regarding AI : vector database, openAI api, langchain, 
+Regarding web app : backend with nest, frontend with nextjs, typescript, tailwind css, html, all architecture stuff : nginx, docker
+Regarding our project : displaying PDF nicely, encrypting and decrypting all data, ocr file to get data from file, store file with encryption, 
+creating a chatzone like chatGPT, creating a nested folder and be able to adapt the size of each part of the app
+
+
+# Docufind
+
+### Overview
+
+Docufind was developed to address a common challenge faced by lawyers: managing and reading thousands of pages of documents in large legal cases. The project evolved across three different repositories as we explored various solutions and learned along the way.
+
+At its core, Docufind aimed to balance two key requirements:
+1. **Security** – Ensuring that sensitive legal documents are protected.
+2. **User Experience** – Providing an intuitive interface that enhances a lawyer’s workflow.
+
+### The Initial Approach
+
+Initially, we developed **Docufind** as an Electron app. The primary reason behind this decision was to avoid storing any of the lawyer's files on third-party servers, minimizing security risks. Our goal was for document contents to go directly to the OpenAI API for processing, without leaving the lawyer's device.
+
+However, we encountered several practical challenges that made this approach less feasible, including:
+- Lawyers found it difficult to use an API key securely while maintaining a smooth user experience.
+- Direct API usage presented too many complications in terms of limitations of API token limit.
+
+Even though this initial approach wasn't ideal, a large part of the Electron app was developed and is shared here in case it benefits others.
+
+### What I Learned
+
+Through working on Docufind, I gained invaluable experience in both AI technologies and web development. Here’s a summary of what I learned:
+
+- **Artificial Intelligence**
+  - Vector databases
+  - Embeddings
+  - OpenAI API integration
+  - LangChain for building language models
+
+- **Web Development**
+  - Backend: Nest.js
+  - Frontend: Next.js, TypeScript, Tailwind CSS, HTML
+  - Architectural design: NGINX, Docker
+  
+- **Project-Specific Skills**
+  - Displaying PDFs in a user-friendly manner
+  - Encrypting and decrypting sensitive data
+  - Performing OCR to extract text from files (trying different OCR with python and typescript)
+  - Secure file storage with encryption
+  - Building a chat zone similar to ChatGPT
+  - Designing a nested folder structure with adaptable UI components
+  
+### Screenshots
+
+You can see some images below that illustrate various parts of the project:
+
+<!-- Add screenshots here -->
+
+### Repository Structure
+
+1. **Repo 1** - Initial Electron App Development
+   - Early version focusing on local file security and direct OpenAI API access.
+   
+2. **Repo 2** - Web App Migration
+   - Moving the project from Electron to a web-based app, improving usability while maintaining security.
+
+3. **Repo 3** - Final Version
+   - Fully functional web app with advanced document handling features like OCR, encryption, and file organization.
+
+### Conclusion
+
+Docufind was a challenging but rewarding project, offering unique insights into how technology can be applied to solve real-world problems for legal professionals. I’m sharing the code here in case others find it helpful or want to contribute to future development.
