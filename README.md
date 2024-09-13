@@ -51,6 +51,10 @@ The journey with Docufind enriched my experience immensely in both AI technologi
   - Creating a ChatGPT-like chat zone
   - Designing a nested folder structure with adaptable UI components
 
+- **Soft Skills** 👷
+  - organisation
+  - communication
+
 ### Screenshots 📸
 
 Below are some images that illustrate various parts of the project:
