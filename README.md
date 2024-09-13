@@ -2,9 +2,13 @@
 
 ### Overview 🌟
 
-**Docufind** was developed to tackle a significant challenge faced by lawyers: managing and reading thousands of pages of documents in large legal cases. The project evolved across three different repositories as we explored various solutions and gathered insights.
+**Docufind** was developed to tackle a significant challenge faced by lawyers: managing and reading thousands of pages of documents in large legal cases. The project evolved across three different repositories as we explored various solutions and gathered insights. As, for now, openAI models lack of precision, the goal was to provide a cross-checking for a work that is often made by interns. 
 
-This tool aims to balance two key requirements:
+**My observation was that even though LLMs are good and go beyond keyword search, semantic proximity is necessary. Many solutions suggested searching within documents by semantic proximity. I noticed that it didn't work well for questions like: can you summarize this file, what are the incriminating and exculpatory elements, which are theoretical concepts. To answer these questions, a large context window wasn't enough either, as it lacked precision. As you can see in the code, it was necessary to go through all the pages to extract the relevant information. The result was positive, but the cost was too high.**
+
+### 
+
+Our tries aimed to balance two key requirements:
 1. **Security** 🔒 – Ensuring that sensitive legal documents are well-protected.
 2. **User Experience** 💡 – Providing an intuitive interface that boosts a lawyer's efficiency.
 
@@ -14,9 +18,15 @@ Initially, **Docufind** was conceived as an Electron app. This choice was driven
 
 However, this approach faced practical challenges:
 - Difficulty in using an API key securely while maintaining a seamless user experience.
-- The direct use of the API introduced complexities due to API token limitations.
+- The direct use of the API introduced complexities due to API token limitations (https://platform.openai.com/docs/guides/rate-limits/usage-tiers?context=tier-one). In short, you can't use as much token as you want as a new user so you would have been block to try the app on large files.
 
 Though this initial strategy was less than ideal, much of the Electron app was developed and is shared here to benefit others.
+
+### The second approach 🌐
+
+We decider to pivot to a webapp where everything was encrypted (files, VectorDB) following a no log policy. Everything worked fine. 
+Nevertheless, we were stuck by pricing. Either, the model was affordable but not enough good, or the model was to expensive and good enough for the job (https://openai.com/api/pricing/)
+as the API cost was around 10 EUR for 500 pages. 
 
 ### What I Learned 🎓
 
