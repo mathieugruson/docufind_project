@@ -59,7 +59,9 @@ The journey with Docufind enriched my experience immensely in both AI technologi
 
 Below are some images that illustrate various parts of the project:
 
-<!-- Add screenshots here -->
+<img src="https://github.com/user-attachments/assets/769f1501-6b26-41e8-9e69-671fbfe492f9" alt="docufind" height="500" width="1000"/>
+<img src="https://github.com/user-attachments/assets/ba65ecec-9e63-4ed3-b5df-ea0723978851" alt="docufind" height="500" width="1000"/>
+
 
 ### Repository Structure 📁
 
