@@ -47,6 +47,7 @@ The journey with Docufind enriched my experience immensely in both AI technologi
   - Displaying PDFs clearly and interactively
   - Encrypting and decrypting data securely
   - OCR to extract text from documents
+  - manage different docs format (docx, pdf, pptx, png, jpg, etc.)
   - Secure file storage with encryption techniques
   - Creating a ChatGPT-like chat zone
   - Designing a nested folder structure with adaptable UI components
@@ -57,7 +58,8 @@ The journey with Docufind enriched my experience immensely in both AI technologi
 
 ### Screenshots 📸
 
-Below are some images that illustrate the project:
+Below are some images that illustrate the project, where you were able to click on the doc link to verify the given information, which display the docs at the given page.
+You could then go through the doc if you will:
 
 <img src="https://github.com/user-attachments/assets/769f1501-6b26-41e8-9e69-671fbfe492f9" alt="docufind" height="500" width="1000"/>
 <img src="https://github.com/user-attachments/assets/ba65ecec-9e63-4ed3-b5df-ea0723978851" alt="docufind" height="500" width="1000"/>
