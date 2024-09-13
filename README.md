@@ -64,6 +64,10 @@ You could then go through the doc if you will:
 <img src="https://github.com/user-attachments/assets/769f1501-6b26-41e8-9e69-671fbfe492f9" alt="docufind" height="500" width="1000"/>
 <img src="https://github.com/user-attachments/assets/ba65ecec-9e63-4ed3-b5df-ea0723978851" alt="docufind" height="500" width="1000"/>
 
+You could also select the folder or the file and see the files loading :  
+
+![image](https://github.com/user-attachments/assets/023a73dc-bced-452c-8091-493c76a127e4)
+
 
 ### Repository Structure 📁
 
