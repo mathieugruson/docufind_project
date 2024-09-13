@@ -58,7 +58,7 @@ The journey with Docufind enriched my experience immensely in both AI technologi
 
 ### Screenshots 📸
 
-Below are some images that illustrate the project, where you were able to click on the doc link to verify the given information, which display the docs at the given page.
+Below are some images that illustrate the project (i did use other files as law files are secret, where you were able to click on the doc link to verify the given information, which display the docs at the given page.
 You could then go through the doc if you will:
 
 <img src="https://github.com/user-attachments/assets/769f1501-6b26-41e8-9e69-671fbfe492f9" alt="docufind" height="500" width="1000"/>
