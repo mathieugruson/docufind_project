@@ -67,7 +67,8 @@ Below are some images that illustrate various parts of the project:
 3. **Repo 3** - Final Iteration
    - A fully functional web application featuring advanced document management tools.
 
-### Why we failed 🎉
+### Last update
+05/2024. It is possible that some troubles appears as node module evolve and can become deprecated.
 
 
 
